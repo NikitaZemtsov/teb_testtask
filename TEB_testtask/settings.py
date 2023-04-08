@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os.path
 from pathlib import Path
 
+import environ
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,8 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ynt#5vm91w!zee06)m_g+7ujwi=3)-101ym1klh811me1#kzwd'
-API_TOKEN = '6274272008:AAEShSrgdICEnhW9EjkosHB_4_3OsfUg4nQ'
+SECRET_KEY = env('SECRET_KEY')
+API_TOKEN = env('API_TOKEN')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -80,11 +85,11 @@ WSGI_APPLICATION = 'TEB_testtask.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'uIDVu1nnAO9jt2lRbNxN',
-        'HOST': 'containers-us-west-14.railway.app',
-        'PORT': '5788',
+        'NAME': env('PGDATABASE'),
+        'USER': env('PGUSER'),
+        'PASSWORD': env('uIDVu1nnAO9jt2lRbNxN'),
+        'HOST': env('PGHOST'),
+        'PORT': env('PGPORT'),
     }
 }
 

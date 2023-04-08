@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 
 from .forms import LoginUserForm
 
+from django.contrib.auth.decorators import login_required
 
 def registration(request):
     return render(request, 'registration/register.html')
@@ -21,6 +22,7 @@ def logout_user(requests):
     logout(requests)
     return redirect('login')
 
+@login_required()
 def user_profile(request):
     user = request.user
     content = {'user': user}
