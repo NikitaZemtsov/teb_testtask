@@ -26,9 +26,9 @@ API_TOKEN = '6274272008:AAEShSrgdICEnhW9EjkosHB_4_3OsfUg4nQ'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://web-production-c739.up.railway.app']
 
-CSRF_TRUSTED_ORIGINS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://web-production-c739.up.railway.app']
 
 # Application definition
 

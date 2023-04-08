@@ -8,6 +8,4 @@ class BotConfig(AppConfig):
 
 
 def get_login_url():
-    # print(Site.objects.get_current().domain)
-    print(reverse_lazy('login'))
-    return 'http://127.0.0.1:8000/login'
+    return 'https://web-production-c739.up.railway.app/login/'
